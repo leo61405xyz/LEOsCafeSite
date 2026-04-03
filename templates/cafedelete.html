@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>刪除咖啡豆清單</title>{% endblock %}
+
+{% block menu %}
+    <a href="/adminmain/"><button class="base-button" type="button">管理主頁</button></a>
+{% endblock %}
+
+{% block content %}
+    <h2 style="color: #6e4a3f;">刪除咖啡豆資料</h2>
+	<form action="." method="POST" name="form1">
+		{% csrf_token %}
+        <div>即將刪除此筆資料：{{CoffeeBeanUnit}}</div>
+		<div>
+            <input type="submit" name="button" id="button" value="確定刪除" />
+		</div> 
+		<span style="color:red">{{message}}</span>
+    </form>
+{% endblock %}

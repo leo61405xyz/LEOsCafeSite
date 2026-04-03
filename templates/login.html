@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>管理員登入</title>{% endblock %}
+
+{% block menu %}
+    <a href="/index/" title="回首頁">
+    <button class="base-button" type="button">回首頁</button></a>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <div class="main">
+            <div class="wrapper">
+                <form action="." method="POST" name="form1">
+                    {% csrf_token %}
+                    <table class="order-table">
+                        <tr>
+                            <th align="right" valign="baseline">帳號</th>
+                            <td valign="baseline"><input name="username" type="text" id="username" style="width:200px"></td>
+                        </tr>
+                        <tr>
+                            <th align="right" valign="baseline">密碼</th>
+                            <td valign="baseline"><input name="passwd" type="password" id="passwd" style="width:200px"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" align="center" valign="baseline">
+                                <input class="order-button" type="submit" name="button" id="button" value="送出">
+                                <input class="order-button" type="reset" name="button2" id="button2" value="重設">
+                            </th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}

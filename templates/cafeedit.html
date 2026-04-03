@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>編輯咖啡豆清單</title>{% endblock %}
+
+{% block menu %}
+    <a href="/adminmain/"><button class="base-button" type="button">管理主頁</button></a>
+{% endblock %}
+
+{% block content %}
+    <form action="/cafeedit/{{CoffeeBeanUnit.id}}/save/" method="POST">
+        {% csrf_token %}
+        <table class="order-table">
+            <tr>
+                <td valign="baseline"></td><h2 style="color: #6e4a3f;">編輯咖啡豆資料</h2></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>名稱</strong><br/><input name="cb_name" type="text" id="cb_name" size="45" value="{{CoffeeBeanUnit.CBname}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>咖啡行</strong><br/><input name="cb_coffeeshop" type="text" id="cb_coffeeshop" size="45" value="{{CoffeeBeanUnit.CBcoffeeshop}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>產地</strong><br/><input name="cb_place" type="text" id="cb_place" size="45" value="{{CoffeeBeanUnit.CBplace}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>烘焙度</strong><br/><input name="cb_roasting" type="text" id="cb_roasting" size="45" value="{{CoffeeBeanUnit.CBroasting}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>價格</strong><br/><input name="cb_price" type="text" id="cb_price" size="45" value="{{CoffeeBeanUnit.CBprice}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>風味</strong><br/><textarea name="cb_flavor" id="cb_flavor" cols="36" rows="5">{{CoffeeBeanUnit.CBflavor}}</textarea></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>網址連結</strong><br/><input name="cb_url" type="text" id="cb_url" size="45" value="{{CoffeeBeanUnit.CBurl}}"></td>
+            </tr>
+            <tr>
+                <td valign="baseline"><strong>是否今日咖啡</strong><br/><input name="cb_coffeetoday" type="text" id="cb_coffeetoday" size="45" value="{{CoffeeBeanUnit.CBcoffeetoday}}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="center">
+                    <input class="order-button" type="submit" name="Submit" value="送出">
+                    <input class="order-button" type="reset" name="reset" value="重設">
+                </td>
+            </tr>
+        </table>
+        <span style="color:red">{{message}}</span>
+    </form>
+{% endblock %}

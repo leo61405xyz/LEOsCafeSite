@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+    <!--不請求icon-->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+</head>
+<body>
+    <div id="warp">
+        <table border="0" align="center" cellpadding="0" cellspacing="0", style="max-width: 800px;">
+            <tr>
+                <td align="middle">
+                    <img class="img-fix2" src="{% static "images/logo.png" %}" width=40% />
+                </td>
+            </tr>
+            <tr>
+                <td align="absmiddle">
+                    {% block menu %}{% endblock %}
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <hr width="100%" size="2" color="#6e4a3f" noshade>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    {% block content %}{% endblock %}
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <hr width="100%" size="2" color="#6e4a3f" noshade>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div align="right">
+                        <b style="font-size:12px;color:#6e4a3f;">
+                            Designed by LEO's Cafe Site Team © 2026 All Rights Reserved.</b>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

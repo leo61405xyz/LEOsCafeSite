@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+    <a href="/index/" title="回首頁">
+        <button class="base-button" type="button">回首頁</button>
+    </a>
+{% endblock %}
+
+{% block content %}
+    <table class="all-coffee-table">
+        <th>姓名</th><th>熱 or 冰</th><th>數量</th><th>訂購時間</th>
+        {% for oditem in OrderItems %}
+            <tr>
+                <td style="text-align: left;">{{oditem.Oname}}</td>
+                <td style="text-align: left;">{{oditem.Otemperature}}</td>
+                <td style="text-align: left;">{{oditem.Ocupnumber}}</td>
+                <td style="text-align: left;">{{oditem.Oodertime}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

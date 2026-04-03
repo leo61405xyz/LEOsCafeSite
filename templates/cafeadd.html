@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>新增咖啡豆資訊</title>{% endblock %}
+
+{% block menu %}
+    <a href="/adminmain/"><button class="base-button" type="button">管理主頁</button></a>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <div class="main">
+            <div class="wrapper">
+                <form action="." method="POST" name="form1">
+                    {% csrf_token %}
+                    <table class="order-table">
+                        <tr>
+                            <td valign="center"><strong>名稱</strong><br/>{{addcafeform.boardcbname}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>咖啡行</strong><br/>{{addcafeform.boardcbcoffeeshop}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>產地</strong><br/>{{addcafeform.boardcbplace}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>烘焙度</strong><br/>{{addcafeform.boardcbroasting}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>價格</strong><br/>{{addcafeform.boardcbprice}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>風味描述</strong><br/>{{addcafeform.boardcbflavor}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>網址連結</strong><br/>{{addcafeform.boardcburl}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>是否今日咖啡</strong><br/>{{addcafeform.boardcbcoffeetoday}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="center">
+                                <input class="order-button" type="submit" name="Submit" value="送出" />
+                                <input class="order-button" type="reset" name="reset" value="重設" />
+                            </td>
+                        </tr>
+                    </table>
+                    <span style="color:red">{{message}}</span>
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<div style="display: flex; align-items: center; width: 100%; position: relative;">
+    
+    <div style="flex: 1;"></div>
+
+    <div style="flex: 2; text-align: center; display: flex; justify-content: center; gap: 10px;">
+        <a href="/ordercafe/">
+            <button class="base-button" type="button">點咖啡</button>
+        </a>
+        <a href="/orderview/">
+            <button class="base-button" type="button">訂單瀏覽</button>
+        </a>
+    </div>
+
+    <div style="flex: 1; text-align: right;">
+        <a href="/login/" title="管理員登入">
+            <img class="img-fix1" src="{% static 'images/cafe.png' %}" style="width: 40px; vertical-align: middle;" />
+        </a>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block content %}
+    <tr>
+        <td>
+            <h1 style="color: #6e4a3f;">內部限定福利，咖啡輕鬆點<br/>Internal Perk: Your Easy Coffee Order.</h1>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <hr width="100%" size="2" color="#6e4a3f" noshade>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1 style="color: #6e4a3f;">今日咖啡豆：<span style="color: #940b0d;">{{CoffeeBeanToday}}</span></h1>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <hr width="100%" size="2" color="#6e4a3f" noshade>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2 style="color: #6e4a3f;">咖啡豆清單</h2>
+        </td>
+    </tr>
+    <table class="all-coffee-table">
+        <th>名稱</th><th>咖啡行</th><th>產地</th><th>烘焙度</th><th>價格</th>
+        {% for cbitem in CoffeeBeanItems %}
+            <tr>
+                <td style="text-align: left;">
+                    <a href="{{cbitem.CBurl}}">
+                    {{cbitem.CBname}}</a>
+                </td>
+                <td style="text-align: left;">{{cbitem.CBcoffeeshop}}</td>
+                <td style="text-align: left;">{{cbitem.CBplace}}</td>
+                <td style="text-align: left;">{{cbitem.CBroasting}}</td>
+                <td style="text-align: left;">{{cbitem.CBprice}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

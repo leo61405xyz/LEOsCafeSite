@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>管理員登入</title>{% endblock %}
+
+{% block menu %}
+    <a href="/logout/"><button class="base-button" type="button">登出</button></a>
+{% endblock %}
+
+{% block content %}
+    <h2 style="color: #6e4a3f;">訂單</h2>
+    <table class="all-coffee-table">
+        <th>姓名</th><th>熱 or 冰</th><th>數量</th><th>訂購時間</th><th>編輯</th><th>刪除</th>
+        {% for orditem in OrderItems %}
+            <tr>
+                <td style="text-align: left;">{{orditem.Oname}}</td>
+                <td style="text-align: left;">{{orditem.Otemperature}}</td>
+                <td style="text-align: left;">{{orditem.Ocupnumber}}</td>
+                <td style="text-align: left;">{{orditem.Oodertime}}</td>
+                <td style="text-align: left;">
+                    <a href="/orderedit/{{orditem.id}}/load/" title="編輯">編輯</a>
+                </td>
+                <td style="text-align: left;">
+                    <a href="/orderdelete/{{orditem.id}}/" title="編輯">刪除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <hr width="100%" size="2" color="#6e4a3f" noshade>
+    <h2 style="color: #6e4a3f;">咖啡豆清單</h2>
+    <table class="all-coffee-table">
+        <th>名稱</th><th>咖啡行</th><th>產地</th><th>烘焙度</th><th>價格</th><th>今日咖啡</th><th>編輯</th><th>刪除</th>
+        {% for cbitem in CoffeeBeanItems %}
+            <tr>
+                <td style="text-align: left;">
+                    <a href="{{cbitem.CBurl}}">
+                    {{cbitem.CBname}}</a>
+                </td>
+                <td style="text-align: left;">{{cbitem.CBcoffeeshop}}</td>
+                <td style="text-align: left;">{{cbitem.CBplace}}</td>
+                <td style="text-align: left;">{{cbitem.CBroasting}}</td>
+                <td style="text-align: left;">{{cbitem.CBprice}}</td>
+                <td style="text-align: left;">{{cbitem.CBcoffeetoday}}</td>
+                <td style="text-align: left;">
+                    <a href="/cafeedit/{{cbitem.id}}/load/" title="編輯">編輯</a>
+                </td>
+                <td style="text-align: left;">
+                    <a href="/cafedelete/{{cbitem.id}}/" title="刪除">刪除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/cafeadd/"><button class="base-button" type="button">新增</button></a>
+{% endblock %}

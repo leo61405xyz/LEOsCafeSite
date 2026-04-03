@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>編輯訂單</title>{% endblock %}
+
+{% block menu %}
+    <a href="/adminmain/"><button class="base-button" type="button">管理主頁</button></a>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <div class="main">
+            <div class="wrapper">
+                <form action="/orderedit/{{orderid}}/save/" method="POST" name="form1">
+                    {% csrf_token %}
+                    <table class="order-table">
+                        <tr>
+                            <td valign="center"><strong>姓名</strong><br/>{{orderform.boardname}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>熱 or 冰<br/>{{orderform.boardtemperature}}</strong></td>
+                        <tr>
+                            <td valign="center"><strong>數量</strong>（一杯約130毫升）<br/>{{orderform.boardcupnumber}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="center"><strong>驗證碼</strong><br/>{{orderform.captcha}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="center">
+                                <input class="order-button" type="submit" name="Submit" value="送出" />
+                                <input class="order-button" type="reset" name="reset" value="重設" />
+                            </td>
+                        </tr>
+                    </table>
+                    <span style="color:red">{{message}}</span>
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}
