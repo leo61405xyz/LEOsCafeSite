@@ -149,3 +149,26 @@ head {
     background-color: #D6EEEE;
     border-radius: .8rem;
 }
+
+/* 當螢幕寬度小於 600px 時執行 */
+@media (max-width: 600px) {
+    .all-coffee-table {
+        display: block; /* 讓表格變成區塊模式 */
+        overflow-x: auto; /* 如果內容還是太寬，允許左右滑動 */
+        white-space: nowrap; /* 避免文字過度斷行造成高度爆炸 */
+        font-size: 0.85rem; /* 稍微縮小字體 */
+    }
+
+    .all-coffee-table th, 
+    .all-coffee-table td {
+        padding: 6px 4px; /* 縮小內距，把空間還給文字 */
+        text-align: center; /* 手機上置中通常看起來比較整齊 */
+    }
+
+    /* 針對「編輯」與「刪除」按鈕 */
+    .all-coffee-table td a {
+        display: inline-block;
+        padding: 2px 4px;
+        font-size: 0.8rem;
+    }
+}
