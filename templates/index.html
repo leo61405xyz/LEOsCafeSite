@@ -51,18 +51,27 @@
         </td>
     </tr>
     <table class="all-coffee-table">
-        <th>名稱</th><th>咖啡行</th><th>產地</th><th>烘焙度</th><th>價格</th>
-        {% for cbitem in CoffeeBeanItems %}
+        <thead>
             <tr>
-                <td style="text-align: left;">
-                    <a href="{{cbitem.CBurl}}">
-                    {{cbitem.CBname}}</a>
-                </td>
-                <td style="text-align: left;">{{cbitem.CBcoffeeshop}}</td>
-                <td style="text-align: left;">{{cbitem.CBplace}}</td>
-                <td style="text-align: left;">{{cbitem.CBroasting}}</td>
-                <td style="text-align: left;">{{cbitem.CBprice}}</td>
+                <th>名稱</th>
+                <th>咖啡行</th>
+                <th>產地</th>
+                <th>烘焙度</th>
+                <th>價格</th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for cbitem in CoffeeBeanItems %}
+                <tr>
+                    <td data-label="名稱">
+                        <a href="{{cbitem.CBurl}}">{{cbitem.CBname}}</a>
+                    </td>
+                    <td data-label="咖啡行">{{cbitem.CBcoffeeshop}}</td>
+                    <td data-label="產地">{{cbitem.CBplace}}</td>
+                    <td data-label="烘焙度">{{cbitem.CBroasting}}</td>
+                    <td data-label="價格">{{cbitem.CBprice}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
 {% endblock %}

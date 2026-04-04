@@ -9,14 +9,23 @@
 
 {% block content %}
     <table class="all-coffee-table">
-        <th>姓名</th><th>熱 or 冰</th><th>數量</th><th>訂購時間</th>
-        {% for oditem in OrderItems %}
+        <thead>
             <tr>
-                <td style="text-align: left;">{{oditem.Oname}}</td>
-                <td style="text-align: left;">{{oditem.Otemperature}}</td>
-                <td style="text-align: left;">{{oditem.Ocupnumber}}</td>
-                <td style="text-align: left;">{{oditem.Oodertime}}</td>
+                <th>姓名</th>
+                <th>熱 or 冰</th>
+                <th>數量</th>
+                <th>訂購時間</th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for oditem in OrderItems %}
+                <tr>
+                    <td data-label="姓名">{{oditem.Oname}}</td>
+                    <td data-label="熱 or 冰">{{oditem.Otemperature}}</td>
+                    <td data-label="數量">{{oditem.Ocupnumber}}</td>
+                    <td data-label="訂購時間">{{oditem.Oodertime}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
 {% endblock %}
