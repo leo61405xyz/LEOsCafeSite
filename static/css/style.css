@@ -1,7 +1,8 @@
 html, body {
     min-height: 100vh;
     background: linear-gradient(to bottom, rgba(34, 193, 195, 1), rgba(253, 187, 45, 1));
-    height: auto;
+    background-attachment: fixed; /* 讓背景固定在螢幕，不隨捲軸滾動 */
+    margin: 0;
 }
 
 td {
@@ -157,12 +158,15 @@ head {
         overflow-x: auto; /* 如果內容還是太寬，允許左右滑動 */
         white-space: nowrap; /* 避免文字過度斷行造成高度爆炸 */
         font-size: 0.85rem; /* 稍微縮小字體 */
+        table-layout: fixed; /* 強制固定佈局 */
+        width: 100%;
     }
 
     .all-coffee-table th, 
     .all-coffee-table td {
         padding: 6px 4px; /* 縮小內距，把空間還給文字 */
         text-align: center; /* 手機上置中通常看起來比較整齊 */
+        word-wrap: break-word; /* 避免長字串撐破格子 */
     }
 
     /* 針對「編輯」與「刪除」按鈕 */
