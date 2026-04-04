@@ -172,19 +172,4 @@ head {
         /* 確保內容太長時會自動換行而不是撐破表格 */
         word-break: break-all; 
     }
-
-    /* 3. 針對比較寬的欄位（如訂購時間、名稱）手動分配比例 */
-    /* 假設第 4 欄是訂購時間 */
-    .all-coffee-table th:nth-child(4),
-    .all-coffee-table td:nth-child(4) {
-        width: 30%; /* 給時間多一點空間 */
-    }
-
-    /* 針對按鈕欄位縮小空間 */
-    .all-coffee-table th:last-child,
-    .all-coffee-table td:last-child,
-    .all-coffee-table th:nth-last-child(2),
-    .all-coffee-table td:nth-last-child(2) {
-        width: 12%; 
-    }
 }
