@@ -2,6 +2,7 @@ html, body {
     min-height: 100vh;
     background: linear-gradient(to bottom, rgba(34, 193, 195, 1), rgba(253, 187, 45, 1));
     background-attachment: fixed; /* 讓背景固定在螢幕，不隨捲軸滾動 */
+    background-repeat: no-repeat;
     margin: 0;
 }
 
@@ -154,25 +155,36 @@ head {
 /* 當螢幕寬度小於 600px 時執行 */
 @media (max-width: 600px) {
     .all-coffee-table {
-        display: block; /* 讓表格變成區塊模式 */
-        overflow-x: auto; /* 如果內容還是太寬，允許左右滑動 */
-        white-space: nowrap; /* 避免文字過度斷行造成高度爆炸 */
-        font-size: 0.85rem; /* 稍微縮小字體 */
-        table-layout: fixed; /* 強制固定佈局 */
+        /* 1. 移除 display: block，恢復 table 才能對齊欄位 */
+        display: table; 
         width: 100%;
+        /* 2. 移除 white-space: nowrap，允許標題在空間不足時微調 */
+        white-space: normal; 
+        font-size: 0.75rem; /* 手機版字體再縮小一點點 */
+        table-layout: fixed; /* 這行現在會起作用了：強制平均分配寬度 */
     }
 
     .all-coffee-table th, 
     .all-coffee-table td {
-        padding: 6px 4px; /* 縮小內距，把空間還給文字 */
-        text-align: center; /* 手機上置中通常看起來比較整齊 */
-        word-wrap: break-word; /* 避免長字串撐破格子 */
+        padding: 8px 2px; /* 增加上下間距，縮小左右間距 */
+        text-align: center;
+        vertical-align: middle;
+        /* 確保內容太長時會自動換行而不是撐破表格 */
+        word-break: break-all; 
     }
 
-    /* 針對「編輯」與「刪除」按鈕 */
-    .all-coffee-table td a {
-        display: inline-block;
-        padding: 2px 4px;
-        font-size: 0.8rem;
+    /* 3. 針對比較寬的欄位（如訂購時間、名稱）手動分配比例 */
+    /* 假設第 4 欄是訂購時間 */
+    .all-coffee-table th:nth-child(4),
+    .all-coffee-table td:nth-child(4) {
+        width: 30%; /* 給時間多一點空間 */
+    }
+
+    /* 針對按鈕欄位縮小空間 */
+    .all-coffee-table th:last-child,
+    .all-coffee-table td:last-child,
+    .all-coffee-table th:nth-last-child(2),
+    .all-coffee-table td:nth-last-child(2) {
+        width: 12%; 
     }
 }
