@@ -17,9 +17,9 @@ class CoffeeBeanItem(models.Model):
     CBplace = models.CharField(max_length=50, null=False)
     CBroasting = models.CharField(max_length=50, null=False)
     CBprice = models.CharField(max_length=50, null=False)
-    CBflavor = models.CharField(max_length=50, null=False)
-    CBurl = models.CharField(max_length=200, null=False)
-    CBcoffeetoday = models.CharField(max_length=10, null=False)
+    CBflavor = models.CharField(max_length=1000, null=False)
+    CBurl = models.CharField(max_length=1000, null=False)
+    CBcoffeetoday = models.CharField(max_length=20, null=False)
 
     def __str__(self):
         return self.CBname
