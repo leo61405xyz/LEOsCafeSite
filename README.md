@@ -44,7 +44,6 @@
     <td><img src="static/images/screenshot_phone.png" height="200"></td>
   </tr>
 </table>
----
 
 ## 🚀 本地開發指南
 
@@ -92,4 +91,4 @@
 
 ## 🤝 聯絡資訊
 
-**Leo** - [GitHub Profile](https://www.google.com/search?q=https://github.com/leo61405xyz)
+**Leo** - [GitHub Profile](https://github.com/leo61405xyz)
